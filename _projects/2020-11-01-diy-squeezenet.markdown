@@ -71,7 +71,7 @@ To reduce the model size, SqueezeNet uses 3 techniques: FireLayers, avoiding ful
     </figcaption>
 </figure>
 
-The FireLayers used throughout the network are composed of a "squeeze" layer (1x1 filters) and an "expand" layer that uses 1x1 and 3x3 filters. There are two benefits to this design: firstly, replacing the majority of 3x3 filters with 1x1 filters reduces the number of parameters by ~9 times. Secondly, by reducing the number of filters in the “squeeze” layer, this greatly reduces the number of connections between the "squeeze" layer and the "expand" layer, further reducing the total number of parameters. Check out our implementation of the FireLayer at [`/fire_mod.py`](https://github.com/jwnicholas99/DIYSqueezeNet/blob/master/fire_mod.py).
+The FireLayers used throughout the network are composed of a "squeeze" layer (1x1 filters) and an "expand" layer that uses 1x1 and 3x3 filters. There are two benefits to this design: firstly, replacing the majority of 3x3 filters with 1x1 filters reduces the number of parameters by ~9 times. Secondly, by reducing the number of filters in the “squeeze” layer, this greatly reduces the number of connections between the "squeeze" layer and the "expand" layer, further reducing the total number of parameters. Check out our implementation of the FireLayer at [`/fire_mod.py`](https://github.com/jwnicholas/DIYSqueezeNet/blob/master/fire_mod.py).
 
 As fully-connected layers hold an immense number of parameters (more than 85% of VGG's 138 million parameters are in fully-connected layers), avoiding them is key to keeping the number of parameters small. 
 
@@ -110,7 +110,7 @@ Pruning is a way of reducing the number of connections between layers. It is imp
 
 The benefits are two-fold: firstly, when we perform inference on these pruned models, the zeroed out weights can be skipped to improve model speed and efficiency without losing much accuracy since we've only removed the least impactful weights. Secondly, when the model is compressed (eg. using `gzip`), these zeroed out weights can be represented more compactly, further reducing the size of the model.
 
-We use `tfmot` to implement pruning - `tfmot.sparsity.keras.UpdatePruningStep()` is a Keras callback that our model utilizes in each training stage in order to repeatedly prune our model. However, as `tfmot` was relatively new then, it did not support directly wrapping custom layers like our FireLayers for pruning. To work around this, we implemented our own functions [`wrap_layer_pruning()`](https://github.com/jwnicholas99/DIYSqueezeNet/blob/master/fire_mod.py#L56) and [`strip_pruning_wrapping()`](https://github.com/jwnicholas99/DIYSqueezeNet/blob/master/fire_mod.py#L66) to wrap and unwrap FireLayers for pruning.
+We use `tfmot` to implement pruning - `tfmot.sparsity.keras.UpdatePruningStep()` is a Keras callback that our model utilizes in each training stage in order to repeatedly prune our model. However, as `tfmot` was relatively new then, it did not support directly wrapping custom layers like our FireLayers for pruning. To work around this, we implemented our own functions [`wrap_layer_pruning()`](https://github.com/jwnicholas/DIYSqueezeNet/blob/master/fire_mod.py#L56) and [`strip_pruning_wrapping()`](https://github.com/jwnicholas/DIYSqueezeNet/blob/master/fire_mod.py#L66) to wrap and unwrap FireLayers for pruning.
 
 Pruning further reduced SqueezeNet to **2.05 MB**, a **x117 reduction** in comparison to AlexNet's 240 MB.
 
@@ -124,7 +124,7 @@ Quantization involves converting the datatype of our weights from floats (32 bit
     </figcaption>
 </figure>
 
-Quantization is normally done post-training, but has the downside of significantly reducing our accuracy. To combat this, we use a quantization-aware model, which involves quantizing during training in addition to quantizing post-training. This ameliorates the issue of lower accuracy and even increases accuracy in certain cases. Check out [`quantization.py`](https://github.com/jwnicholas99/DIYSqueezeNet/blob/master/quantization.py) to see how we implement quantization.
+Quantization is normally done post-training, but has the downside of significantly reducing our accuracy. To combat this, we use a quantization-aware model, which involves quantizing during training in addition to quantizing post-training. This ameliorates the issue of lower accuracy and even increases accuracy in certain cases. Check out [`quantization.py`](https://github.com/jwnicholas/DIYSqueezeNet/blob/master/quantization.py) to see how we implement quantization.
 
 Quantization further reduced SqueezeNet to **0.80 MB**, a **x300 reduction** in comparison to AlexNet's 240 MB.
 
@@ -140,7 +140,7 @@ Huffman coding is another compression technique that further reduces the number 
 
 Huffman coding involves treating each unique number as a symbol and assigning each symbol a corresponding bit value. For example, we may represent the float `0.123456` as the bit `10`. Higher frequency symbols are assigned smaller bit sizes and a codec containing each symbol to bit representation mapping is stored in this process. The final result is a weight tensor encoded into a sequence of bits along with a codec, which can be decoded and reshaped back into the original tensor at any point.
 
-Although we were able to implement Huffman encoding using the `dahuffman` Python library, we were not able to fully integrate Huffman encoding into our pipeline due to the lack of support in Tensorflow modules. Check out our demo at [`huffman_opt.py`](https://github.com/jwnicholas99/DIYSqueezeNet/blob/master/huffman_opt.py) that encodes a 500x500 32-bit tensor from ~8 MB to 0.56 MB.
+Although we were able to implement Huffman encoding using the `dahuffman` Python library, we were not able to fully integrate Huffman encoding into our pipeline due to the lack of support in Tensorflow modules. Check out our demo at [`huffman_opt.py`](https://github.com/jwnicholas/DIYSqueezeNet/blob/master/huffman_opt.py) that encodes a 500x500 32-bit tensor from ~8 MB to 0.56 MB.
 
 <br>
 
@@ -154,7 +154,7 @@ By including a compressed model in a compiled demo project, and using the Tensor
     </figcaption>
 </figure>
 
-Check out our ESP32 demo at [`/ESP32_Demo_Classifier`](https://github.com/jwnicholas99/DIYSqueezeNet/tree/master/ESP32_Demo_Classifier)
+Check out our ESP32 demo at [`/ESP32_Demo_Classifier`](https://github.com/jwnicholas/DIYSqueezeNet/tree/master/ESP32_Demo_Classifier)
 
 <br>
 
