@@ -11,7 +11,7 @@ categories:
 links:
     code: 
         text: code
-        link: https://github.com/jwnicholas99/embedded_video_game_console
+        link: https://github.com/jwnicholas/embedded_video_game_console
         logo: fa fa-github
 mathjax: true
 ---
