@@ -11,7 +11,7 @@ categories:
 links:
     code: 
         text: code
-        link: https://github.com/jwnicholas99/embedded_systems_course/blob/master/lab10/Lab10.c
+        link: https://github.com/jwnicholas/embedded_systems_course/blob/master/lab10/Lab10.c
         logo: fa fa-github
 mathjax: true
 ---
@@ -249,7 +249,7 @@ As seen in the diagrams above, there are 3 inputs and 8 outputs. The three switc
     </figcaption>
 </figure>
 
-Now that we have the electrical circuit set-up, we can start coding the software program. In the code block below, there are functions for reading in inputs and writing out outputs. The [full program](https://github.com/jwnicholas99/embedded_systems_course/blob/master/lab10/Lab10.c) is a fair bit complicated as it uses finite state machines so we won't discuss that here.
+Now that we have the electrical circuit set-up, we can start coding the software program. In the code block below, there are functions for reading in inputs and writing out outputs. The [full program](https://github.com/jwnicholas/embedded_systems_course/blob/master/lab10/Lab10.c) is a fair bit complicated as it uses finite state machines so we won't discuss that here.
 
 <pre><code>#define GPIO_PORTB_DATA_R (*((volatile unsigned long *) 0x400053FC))
 #define GPIO_PORTE_DATA_R (*((volatile unsigned long *) 0x400243FC))
