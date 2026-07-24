@@ -8,7 +8,7 @@ filters: hacks
 links:
     code: 
         text: code
-        link: https://github.com/jwnicholas99/PiTracker
+        link: https://github.com/jwnicholas/PiTracker
         logo: fa fa-github
 skills:
     - Python
