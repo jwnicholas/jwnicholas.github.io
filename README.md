@@ -12,7 +12,7 @@ Hi! This is the version 2.0 of my personal website.
 ## Key Features
 I use Jekyll as a static site generator so that I can easily update my website. Plus, Jekyll is blog-aware and hence is conducive for writing blog posts.
 
-This is a major upgrade from my previous [personal website](https://github.com/jwnicholas99/2020.portfolio) which was only a single-page application.
+This is a major upgrade from my previous [personal website](https://github.com/jwnicholas/2020.portfolio) which was only a single-page application.
 
 ## Usage
 
