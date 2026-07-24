@@ -23,7 +23,7 @@ email: jwnicholas99@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is my portfolio website showcasing my experience and projects.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jwnicholas.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jwnicholas.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jwnicholas
 
 # Build settings
@@ -35,7 +35,6 @@ plugins:
 seo:
   name: Jing Wei Nicholas Lim
   type: Person
-url: https://jwnicholas.github.io/
 social:
   name: Jing Wei Nicholas Lim
   links:
