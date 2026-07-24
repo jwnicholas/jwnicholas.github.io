@@ -8,7 +8,7 @@ filters: hacks academics
 links:
     code: 
         text: code
-        link: https://github.com/jwnicholas99/DIYSqueezeNet
+        link: https://github.com/jwnicholas/DIYSqueezeNet
         logo: fa fa-github
     devpost:
         text: devpost
