@@ -346,7 +346,7 @@ Now that we have set-up the electrical circuit, we can turn our attention to des
     </figcaption>
 </figure>
 
-The code can be found [here](https://github.com/jwnicholas99/embedded_video_game_console). Note that this is demonstrating the code I have written in [<code>SpaceInvaders.c</code>](https://github.com/jwnicholas99/embedded_video_game_console/blob/master/SpaceInvaders.c) - many other files are needed to actually run the video game console!
+The code can be found [here](https://github.com/jwnicholas/embedded_video_game_console). Note that this is demonstrating the code I have written in [<code>SpaceInvaders.c</code>](https://github.com/jwnicholas/embedded_video_game_console/blob/master/SpaceInvaders.c) - many other files are needed to actually run the video game console!
 
 ### 2.5&nbsp;&nbsp;Demo
 Here's the final result!

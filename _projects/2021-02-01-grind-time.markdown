@@ -8,7 +8,7 @@ filters: hacks
 links:
     code: 
         text: code
-        link: https://github.com/jwnicholas99/ApplicationPlayList
+        link: https://github.com/jwnicholas/ApplicationPlayList
         logo: fa fa-github
     devpost:
         text: devpost
